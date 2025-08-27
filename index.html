@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaAssist</title>
+    <!-- Linking Google fonts for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <!-- link css file -->
+      <link rel="stylesheet" href="style.css">
+      <!-- favicon - small icon show in browser -->
+<link rel="icon" id="fevicon" type="image/svg+xml" href="fevicon.svg" sizes="48x48">
+      <style>
+        
+      </style>
+</head>
+<body>
+    <!-- chatbot toggler -->
+
+    <div class="chatbot-popup">
+        <!-- history local storage -->
+         <div class="side-bar">
+            <div class="sidebaar-header"> 
+        <button id="sidebaar_close" class="material-symbols-rounded">arrow_menu_open</button>
+        <div class="sidebar-header-control"> 
+             <button type="button" id="robot" class="material-symbols-rounded">robot_2</button>
+             <button type="button" id="new-chat" class="material-symbols-rounded">edit_square</button>
+             <button type="button" id="clear-history" class="material-symbols-rounded">delete_history</button>
+        </div>
+        </div>
+        <div class="chat-history" id="chatHistory">
+        </div>
+        <div class="credit-footer">
+            <footer class="creadit">
+            Made with &heartsuit; by Aman Kr. Gupta
+            </footer>
+        </div>
+         </div>
+        <!-- chat bot header -->
+        <div class="chat-header">
+            <div class="header-info">
+                <svg class="chatbot-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+    <path d="M11 8H13C15.8284 8 17.2426 8 18.1213 8.87868C19 9.75736 19 11.1716 19 14C19 16.8284 19 18.2426 18.1213 19.1213C17.2426 20 15.8284 20 13 20H12C12 20 11.5 22 8 22C8 22 9 20.9913 9 19.9827C7.44655 19.9359 6.51998 19.7626 5.87868 19.1213C5 18.2426 5 16.8284 5 14C5 11.1716 5 9.75736 5.87868 8.87868C6.75736 8 8.17157 8 11 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M19 11.5H19.5C20.4346 11.5 20.9019 11.5 21.25 11.701C21.478 11.8326 21.6674 12.022 21.799 12.25C22 12.5981 22 13.0654 22 14C22 14.9346 22 15.4019 21.799 15.75C21.6674 15.978 21.478 16.1674 21.25 16.299C20.9019 16.5 20.4346 16.5 19.5 16.5H19" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M5 11.5H4.5C3.56538 11.5 3.09808 11.5 2.75 11.701C2.52197 11.8326 2.33261 12.022 2.20096 12.25C2 12.5981 2 13.0654 2 14C2 14.9346 2 15.4019 2.20096 15.75C2.33261 15.978 2.52197 16.1674 2.75 16.299C3.09808 16.5 3.56538 16.5 4.5 16.5H5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" stroke="currentColor" stroke-width="1.5"></path>
+    <path d="M12 5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M9 12V13M15 12V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M10 16.5C10 16.5 10.6667 17 12 17C13.3333 17 14 16.5 14 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+                <h2 class="logo-text">NexaAssist</h2>
+            </div>
+            <button id="sidebaar_open" class="material-symbols-rounded">arrow_menu_close</button>
+        </div>
+        <!-- chatbot Body -->
+        
+        <div class="chat-body">
+             <div class="uniq-ui">
+                <h3 class="h3">Hello, I'm NexaAssist</h3>
+                 <svg class="ui-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+    <path d="M11 8H13C15.8284 8 17.2426 8 18.1213 8.87868C19 9.75736 19 11.1716 19 14C19 16.8284 19 18.2426 18.1213 19.1213C17.2426 20 15.8284 20 13 20H12C12 20 11.5 22 8 22C8 22 9 20.9913 9 19.9827C7.44655 19.9359 6.51998 19.7626 5.87868 19.1213C5 18.2426 5 16.8284 5 14C5 11.1716 5 9.75736 5.87868 8.87868C6.75736 8 8.17157 8 11 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M19 11.5H19.5C20.4346 11.5 20.9019 11.5 21.25 11.701C21.478 11.8326 21.6674 12.022 21.799 12.25C22 12.5981 22 13.0654 22 14C22 14.9346 22 15.4019 21.799 15.75C21.6674 15.978 21.478 16.1674 21.25 16.299C20.9019 16.5 20.4346 16.5 19.5 16.5H19" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M5 11.5H4.5C3.56538 11.5 3.09808 11.5 2.75 11.701C2.52197 11.8326 2.33261 12.022 2.20096 12.25C2 12.5981 2 13.0654 2 14C2 14.9346 2 15.4019 2.20096 15.75C2.33261 15.978 2.52197 16.1674 2.75 16.299C3.09808 16.5 3.56538 16.5 4.5 16.5H5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" stroke="currentColor" stroke-width="1.5"></path>
+    <path d="M12 5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M9 12V13M15 12V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M10 16.5C10 16.5 10.6667 17 12 17C13.3333 17 14 16.5 14 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+                <h3 class="h3">How can I Assist you?</h3>
+            </div>
+            <!-- <div class="message bot-message">
+                <svg class="bot-avatar"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+    <path d="M11 8H13C15.8284 8 17.2426 8 18.1213 8.87868C19 9.75736 19 11.1716 19 14C19 16.8284 19 18.2426 18.1213 19.1213C17.2426 20 15.8284 20 13 20H12C12 20 11.5 22 8 22C8 22 9 20.9913 9 19.9827C7.44655 19.9359 6.51998 19.7626 5.87868 19.1213C5 18.2426 5 16.8284 5 14C5 11.1716 5 9.75736 5.87868 8.87868C6.75736 8 8.17157 8 11 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M19 11.5H19.5C20.4346 11.5 20.9019 11.5 21.25 11.701C21.478 11.8326 21.6674 12.022 21.799 12.25C22 12.5981 22 13.0654 22 14C22 14.9346 22 15.4019 21.799 15.75C21.6674 15.978 21.478 16.1674 21.25 16.299C20.9019 16.5 20.4346 16.5 19.5 16.5H19" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M5 11.5H4.5C3.56538 11.5 3.09808 11.5 2.75 11.701C2.52197 11.8326 2.33261 12.022 2.20096 12.25C2 12.5981 2 13.0654 2 14C2 14.9346 2 15.4019 2.20096 15.75C2.33261 15.978 2.52197 16.1674 2.75 16.299C3.09808 16.5 3.56538 16.5 4.5 16.5H5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+    <path d="M13.5 3.5C13.5 4.32843 12.8284 5 12 5C11.1716 5 10.5 4.32843 10.5 3.5C10.5 2.67157 11.1716 2 12 2C12.8284 2 13.5 2.67157 13.5 3.5Z" stroke="currentColor" stroke-width="1.5"></path>
+    <path d="M12 5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M9 12V13M15 12V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M10 16.5C10 16.5 10.6667 17 12 17C13.3333 17 14 16.5 14 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+                <div class="message-text">
+                Hey there🤩<br /> How can I help you today?
+               </div> -->
+            <!-- </div> -->
+        </div>
+        
+        <!-- Chatbot Footer -->
+        <div class="chat-footer">
+            <form action="#" class="chat-form">
+                <textarea name="message-input" id="message" class="message-input" placeholder="Message...." required></textarea>
+                <div class="chat-controls">
+                <button type="button" id="emoji-picker" class="material-symbols-rounded">sentiment_satisfied</button> 
+               <button type="button" id="mic-button" class="material-symbols-rounded " aria-label="Voice input">mic</button>
+                <div class="file-upload-wrapper">
+                    <input type="file" accept="image/*" id="file-input" hidden>
+                    <img src="#" alt="">
+                    <button type="button" id="file-upload" class="material-symbols-rounded">attach_file</button> 
+                    <button type="button" id="file-cancel" class="material-symbols-rounded">close</button>
+                </div> 
+                <button type="submit" id="send-message" class="material-symbols-rounded">arrow_upward</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Linking Emoji Mart script for emoji picker -->
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+
+    <!-- Linking custom script -->
+    <script src="script.js"></script>
+</body>
+</html>
